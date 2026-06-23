@@ -1,0 +1,16 @@
+# LangGraph Studio runtime files
+.langgraph_api/
+
+# Environment
+.env
+
+# Generated data (chroma stores, page images, outlines, registry) — ignore the
+# generated artifacts, but KEEP the source PDFs so a fresh clone is ready to ingest.
+data/*
+!data/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+

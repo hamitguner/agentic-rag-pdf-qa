@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "What is the parameter count of the flagship Llama 3 model, and on roughly how many tokens was it pre-trained?",
+    "expected_answer": "The flagship model has 405B parameters and was pre-trained on a corpus of approximately 15.6 trillion (15T+) multilingual tokens.",
+    "purpose": "Fact Extraction - locating headline numerical facts (parameter count, pre-training token budget) stated early in the Introduction / General Overview."
+  },
+  {
+    "id": 2,
+    "question": "What attention mechanism does Llama 3 adopt to improve inference scalability, and how many key-value heads does it use?",
+    "expected_answer": "It uses Grouped Query Attention (GQA) with 8 key-value heads, which speeds up inference and reduces the size of the key-value cache during decoding.",
+    "purpose": "Architectural Detail Extraction - identifying a specific design choice (GQA, 8 KV heads) from the 'Pre-Training > Model Architecture' section."
+  },
+  {
+    "id": 3,
+    "question": "Which preference-optimization algorithm does Llama 3 use for alignment during post-training, and does it rely on PPO?",
+    "expected_answer": "Post-training aligns the model with supervised finetuning (SFT) followed by Direct Preference Optimization (DPO). The authors deliberately use DPO rather than on-policy RL algorithms such as PPO, finding it more stable and cheaper to run at this scale.",
+    "purpose": "Section-Based Retrieval & Contrast - finding the alignment method in 'Post-Training > Modeling' and correctly contrasting DPO with PPO."
+  },
+  {
+    "id": 4,
+    "question": "What GPU hardware, and approximately how many of them, were used to train the Llama 3 405B model?",
+    "expected_answer": "It was trained on NVIDIA H100 GPUs, using up to 16,000 (16K) H100s on Meta's production clusters.",
+    "purpose": "Fact Extraction (mid-document) - retrieving infrastructure details from the 'Infrastructure, Scaling, and Efficiency' section partway through a long document."
+  },
+  {
+    "id": 5,
+    "question": "What is the approximate final pre-training data mix of Llama 3 across the main content categories?",
+    "expected_answer": "Roughly 50% general-knowledge tokens, 25% mathematical and reasoning tokens, 17% code tokens, and 8% multilingual tokens.",
+    "purpose": "Data / Proportion Reading - extracting the percentage breakdown reported in 'Pre-Training Data > Determining the Data Mix'."
+  },
+  {
+    "id": 6,
+    "question": "What maximum context length does Llama 3 support, and how is the model trained to reach it?",
+    "expected_answer": "Llama 3 supports a context window of up to 128K tokens. It reaches this through a dedicated long-context pre-training stage that gradually increases the context length in several steps (from the initial 8K up to 128K), applied only after standard short-context pre-training.",
+    "purpose": "Contextual Inference - combining the supported length with the staged long-context procedure described in 'Training Recipe > Long Context Pre-Training'."
+  },
+  {
+    "id": 7,
+    "question": "How are image (vision) capabilities added to Llama 3 architecturally - is it trained as a single multimodal model from scratch?",
+    "expected_answer": "No. Llama 3 uses a compositional approach: a separately pre-trained image encoder is connected to the language model through cross-attention adapter layers that feed visual representations into the LLM, rather than training one multimodal model jointly from scratch.",
+    "purpose": "Deep-Document Navigation & Nuanced Detail - locating the vision-integration approach in the late 'Vision Experiments' section and correctly characterizing the compositional / cross-attention design."
+  },
+  {
+    "id": 8,
+    "question": "What quantization technique does Llama 3 apply to the 405B model for more efficient inference, and what numerical format does it use?",
+    "expected_answer": "It applies FP8 quantization to most matrix multiplications in the model (e.g. the feed-forward layers, while leaving self-attention and the first and last Transformer layers unquantized), using the FP8 8-bit floating-point format with row-wise scaling factors.",
+    "purpose": "Fact Extraction (late section) - retrieving the FP8 quantization detail from the 'Inference > FP8 Quantization' section near the end of the document."
+  }
+]

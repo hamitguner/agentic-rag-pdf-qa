@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "Haziran FOMC toplantısında ABD politika faizi hangi aralıkta sabit bırakılmıştır?",
+    "expected_answer": "%3,5 - %3,75 bandında sabit tutulmuştur.",
+    "purpose": "Fact Extraction - measures the ability to locate a specific numerical value in the text."
+  },
+  {
+    "id": 2,
+    "question": "Mart ayı beklentilerine kıyasla, Haziran ayında 2026 yılı PCE ve Çekirdek PCE enflasyon beklentilerinde nasıl bir değişim olmuştur?",
+    "expected_answer": "2026 PCE enflasyon beklentisi Mart ayındaki %2,7'den Haziran'da %3,6'ya; Çekirdek PCE beklentisi ise %2,7'den %3,3'e kuvvetli biçimde yukarı yönlü güncellenmiştir.",
+    "purpose": "Before-After Comparison & Table Reading - tests comparing old (March) and new (June) values in the 'Economic Projections' table."
+  },
+  {
+    "id": 3,
+    "question": "Rapordaki grafikte hangi iki Bloomberg endeksinin zaman içindeki değişimi gösterilmektedir ve grafiğin başlangıç-bitiş yılları kabaca nedir?",
+    "expected_answer": "Grafikte 'PCE DEFY Index' ve 'PCE CYOY Index' verileri gösterilmektedir. Grafik 2021 yılından başlayıp 2026 yılına kadar uzanmaktadır.",
+    "purpose": "Image / Chart Analysis - tests reading legends and x-axis dates from the embedded terminal screenshot (chart), not just text."
+  },
+  {
+    "id": 4,
+    "question": "Yeni Fed Başkanı Kevin Warsh'ın kuracağını açıkladığı 5 ana çalışma grubunun odaklanacağı başlıklar nelerdir?",
+    "expected_answer": "1. Fed iletişimi, 2. Fed Bilançosu, 3. Veri Kaynakları, 4. Yapay zekanın verimlilik ve işgücü piyasası üzerindeki etkisi, 5. Fed'in enflasyon çerçevesi.",
+    "purpose": "Section-Based Retrieval - tests fully extracting a list of items under a specific subsection ('Kevin Warsh - Yeni Fed Başkanı')."
+  },
+  {
+    "id": 5,
+    "question": "Önceki FOMC toplantısındaki üye beklentileri ile bu (Haziran) toplantıdaki üye beklentileri arasındaki temel 'şahinleşme' (hawkish) farkı politika metnine nasıl yansımıştır?",
+    "expected_answer": "Bir önceki projeksiyonda üyeler faiz 'indirimlerin devamı' ile 'sabit bırakılması' arasında ikiye bölünmüşken, bu toplantıda üyelerin 'sabit bırakılması' ve 'faiz artırımı' arasında bölündüğü görülmüştür. Bu yapı şahinleşmeye işaret etmektedir.",
+    "purpose": "Contextual Shift - tests explaining an abstract concept (hawkishness) by comparing past vs. current meeting dynamics."
+  },
+  {
+    "id": 6,
+    "question": "Raporun sonuç kısmında, yatırımcılara ABD tahvilleri ile ilgili nasıl bir duruş sergilemeleri tavsiye edilmektedir?",
+    "expected_answer": "ABD tahvillerinde satıcılı seyrin korunması gerektiği belirtilmiş olup, enflasyon riskleri ile bilançoda yapılabilecek değişiklikler nedeniyle bir süre daha ABD tahvillerinde 'durasyon satın almaktan kaçınmak' gerektiği düşünülmektedir.",
+    "purpose": "Reasoning / Conclusion - measures summarizing the main investment recommendation from the end of the document."
+  },
+  {
+    "id": 7,
+    "question": "Başkan Warsh'a göre para politikasının mevcut konumu (faizler ve bilanço açısından) nasıldır?",
+    "expected_answer": "Warsh, faizlere bakıldığında hafif kısıtlayıcı bir yapı gördüğünü belirtirken; Fed bilançosunun etkilerinin görüldüğü finansal piyasalara bakıldığında buna 'kısıtlayıcı' demenin zor olduğunu ve bunun 'dengesiz' bir yapı ortaya koyduğunu belirtmiştir.",
+    "purpose": "Nuanced Detail Extraction - tests distinguishing how different tools (rates vs. balance sheet) within the same topic (monetary policy) are assessed differently."
+  }
+]
